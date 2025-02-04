@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ارتباط امن PGP</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Vazirmatn', sans-serif;
+}
+
+body {
+background: #f5f6fa;
+color: #2f3640;
+line-height: 1.6;
+}
+
+.container {
+max-width: 800px;
+margin: 2rem auto;
+padding: 1rem;
+}
+
+.header {
+text-align: center;
+margin-bottom: 2rem;
+}
+
+.logo {
+font-size: 3rem;
+color: #273c75;
+margin-bottom: 1rem;
+}
+
+.card {
+background: white;
+border-radius: 10px;
+padding: 2rem;
+margin-bottom: 2rem;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+color: #273c75;
+margin-bottom: 1rem;
+}
+
+p {
+margin-bottom: 1rem;
+}
+
+.btn {
+display: inline-block;
+padding: 0.8rem 1.5rem;
+background: #273c75;
+color: white;
+text-decoration: none;
+border-radius: 5px;
+transition: background 0.3s;
+margin: 0.5rem;
+}
+
+.btn:hover {
+background: #192a56;
+}
+
+.btn i {
+margin-left: 0.5rem;
+}
+
+.key-display {
+background: #f1f2f6;
+padding: 1rem;
+border-radius: 5px;
+font-family: monospace;
+white-space: pre-wrap;
+word-break: break-all;
+margin: 1rem 0;
+direction: ltr;
+text-align: left;
+}
+
+.steps {
+list-style-type: none;
+counter-reset: step-counter;
+}
+
+.steps li {
+margin-bottom: 1rem;
+padding-right: 2rem;
+position: relative;
+}
+
+.steps li::before {
+content: counter(step-counter);
+counter-increment: step-counter;
+position: absolute;
+right: 0;
+top: 0;
+background: #273c75;
+color: white;
+width: 1.5rem;
+height: 1.5rem;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 0.8rem;
+}
+
+.warning {
+background: #fff3cd;
+color: #856404;
+padding: 1rem;
+border-radius: 5px;
+margin: 1rem 0;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="header">
+<div class="logo">
+<i class="fas fa-lock"></i>
+</div>
+<h1>ارتباط امن PGP</h1>
+</header>
+
+<div class="card">
+<h2>درباره PGP</h2>
+<p>PGP (Pretty Good Privacy) یک استاندارد رمزنگاری است که امکان ارتباط امن و محرمانه را فراهم می‌کند. با استفاده از این روش، می‌توانید پیام‌های رمزنگاری شده برای من ارسال کنید که فقط من قادر به خواندن آن‌ها خواهم بود.</p>
+</div>
+
+<div class="card">
+<h2>کلید عمومی من</h2>
+<p>برای ارسال پیام رمزنگاری شده، از کلید عمومی زیر استفاده کنید:</p>
+<div class="key-display" id="publicKey">-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mDMEZ6KfkhYJKwYBBAHaRw8BAQdARoUe7wBpJgCJ8c+WEiT8otIE9cfxZiukHG8K
+27HKolS0KXRpaXZpa29mZmljaWFsIDx0aWl2aWtvZmZpY2lhbEBnbWFpbC5jb20+
+iJkEExYKAEEWIQQTvdXfMJyl+DjX44jwzaQTRnxogwUCZ6KfkgIbAwUJBaNsrgUL
+CQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgAAKCRDwzaQTRnxog34iAQCAP+HrEKN8
+PHI7wwMcR2M0+yYsx32oe2FdqNV7aBkE4QD/YelaGdmpali175W8b0jYsGOwE9yl
+b+78fTOZDYh2aQ24OARnop+SEgorBgEEAZdVAQUBAQdAyOjq+Fit1QHLfvXkseQs
+EjnXnsB1LKckLwM7P+HZuG0DAQgHiH4EGBYKACYWIQQTvdXfMJyl+DjX44jwzaQT
+RnxogwUCZ6KfkgIbDAUJBaNsrgAKCRDwzaQTRnxog4thAQCHSfeyE86d3K8oVyCW
+6BOW5ox2asIfM2urZkL/xLUGDAD+JBx99F7T/9rA76oNw0AZeVMLowIkB2RnLoFG
+fgbMgQo=
+=yYzS
+-----END PGP PUBLIC KEY BLOCK-----</div>
+<a href="#" class="btn" id="downloadKey"><i class="fas fa-download"></i>دانلود کلید عمومی</a>
+<a href="#" class="btn" id="copyKey"><i class="fas fa-copy"></i>کپی کلید</a>
+</div>
+
+<div class="card">
+<h2>نحوه ارسال پیام امن</h2>
+<ol class="steps">
+<li>کلید عمومی بالا را دانلود یا کپی کنید.</li>
+<li>از یک نرم‌افزار PGP مانند GPG یا Kleopatra استفاده کنید.</li>
+<li>پیام خود را با استفاده از کلید عمومی من رمزنگاری کنید.</li>
+<li>پیام رمزنگاری شده را از طریق ایمیل یا کانال‌های دیگر ارسال کنید.</li>
+</ol>
+
+<div class="warning">
+<i class="fas fa-exclamation-triangle"></i>
+توجه: همیشه قبل از ارسال اطلاعات حساس، از صحت کلید عمومی اطمینان حاصل کنید!
+</div>
+</div>
+</div>
+
+<script>
+// کپی کردن کلید عمومی
+document.getElementById('copyKey').addEventListener('click', function(e) {
+e.preventDefault();
+const keyText = document.getElementById('publicKey').textContent;
+navigator.clipboard.writeText(keyText).then(() => {
+alert('کلید عمومی با موفقیت کپی شد!');
+}).catch(err => {
+alert('خطا در کپی کردن: ' + err);
+});
+});
+
+// دانلود کلید عمومی
+document.getElementById('downloadKey').addEventListener('click', function(e) {
+e.preventDefault();
+const keyText = document.getElementById('publicKey').textContent;
+const blob = new Blob([keyText], { type: 'text/plain' });
+const url = window.URL.createObjectURL(blob);
+const a = document.createElement('a');
+a.href = url;
+a.download = 'public-key.asc';
+document.body.appendChild(a);
+a.click();
+window.URL.revokeObjectURL(url);
+document.body.removeChild(a);
+});
+</script>
+</body>
+</html>
